@@ -1,7 +1,9 @@
 -- a simple telnet server
 
 telnet_srv = net.createServer(net.TCP, 180)
+
 telnet_srv:listen(2323, function(socket)
+
     local fifo = {}
     local fifo_drained = true
 
@@ -26,9 +28,11 @@ telnet_srv:listen(2323, function(socket)
     socket:on("receive", function(c, l)
         node.input(l)           -- works like pcall(loadstring(l)) but support multiple separate line
     end)
+
     socket:on("disconnection", function(c)
         node.output(nil)        -- un-regist the redirect output function, output goes to serial
     end)
+
     socket:on("sent", sender)
 
     print("Welcome to NodeMCU world.")

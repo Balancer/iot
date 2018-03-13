@@ -1,3 +1,3 @@
 cfg = {
-	host = 'ExampleHost'
+    host = 'ExampleHost'
 }
